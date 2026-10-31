@@ -39,6 +39,7 @@
         <span class="pill demo">评估运维类界面已就绪</span>
         <span class="pill todo">模型与业务接口待对接</span>
       </div>
+      <p class="to-detail"><a href="#demo-path">先看完整演示路径（操作 + 讲解词）</a></p>
       <p class="to-detail"><a href="index.html">查看详细版（含文件地图、接口与「如何实现」）</a></p>
     </section>
 
@@ -214,19 +215,30 @@
       <p class="to-detail mid"><a href="index.html#how">需要更偏工程表述的实现说明，见详细版「如何实现」</a></p>
     </section>
 
-    <section>
+    <section id="demo-path">
       <div class="sec-head">
-        <h2>建议介绍路径</h2>
-        <p>约八至十二分钟的演示顺序，便于条理清晰。</p>
+        <h2>完整演示路径</h2>
+        <p>按顺序演示即可走完整系统。左侧是操作步骤，右侧是可直接照着说的讲解词。建议总时长约 <b>15–20 分钟</b>。</p>
       </div>
-      <ol class="plain-flow">
-        <li><b>登录与门户</b>——展示统一入口与九大功能总览</li>
-        <li><b>温度场监测</b>——三维云图、曲线面板与按日查询 / 回放</li>
-        <li><b>索力监测</b>——索段着色与极值排列对照</li>
-        <li><b>断丝预警与告警记录</b>——可穿插说明傅里叶特征与智能识别如何支撑四色状态</li>
-        <li><b>诊断 / 寿命 / 健康</b>——说明界面与交互设计，并注明当前为演示数据</li>
-        <li><b>备件 / 日志 / 发布</b>——说明运维保障环节的产品形态与后续对接方向</li>
-      </ol>
+      <div class="demo-toc">
+        <a href="#demo-step-00">准备</a>
+        <a href="#demo-step-01">登录</a>
+        <a href="#demo-step-02">门户</a>
+        <a href="#demo-step-03">温度</a>
+        <a href="#demo-step-04">索力</a>
+        <a href="#demo-step-05">断丝</a>
+        <a href="#demo-step-06">告警</a>
+        <a href="#demo-step-07">显示平台</a>
+        <a href="#demo-step-08">诊断</a>
+        <a href="#demo-step-09">寿命</a>
+        <a href="#demo-step-10">健康</a>
+        <a href="#demo-step-11">备件</a>
+        <a href="#demo-step-12">日志</a>
+        <a href="#demo-step-13">发布</a>
+        <a href="#demo-step-14">导航</a>
+        <a href="#demo-step-15">收束</a>
+      </div>
+      <div id="demoPath"></div>
     </section>
 
     <section>
@@ -291,5 +303,6 @@
     <span>FAST · 简介移动版</span>
     <a href="index.html">查看详细版</a>
   </footer>
+  <script src="demo-path.js"></script>
 </body>
 </html>
