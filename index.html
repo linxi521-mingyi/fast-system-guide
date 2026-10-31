@@ -28,6 +28,7 @@
         <a href="#overview">总览</a>
         <a href="#modules">九大功能</a>
         <a href="#files">文件地图</a>
+        <a href="#how">如何实现</a>
         <a href="#maturity">成熟度</a>
         <a href="#data">数据需求</a>
         <a href="#api">接口清单</a>
@@ -62,6 +63,97 @@
         <p>点击卡片可跳到下方详细文件表。绿标=已接真实数据，黄标=演示数据，蓝标=入口聚合。</p>
       </div>
       <div class="module-grid" id="moduleGrid"></div>
+    </section>
+
+    <section id="how">
+      <div class="sec-head">
+        <h2>主要功能如何实现</h2>
+        <p>面向专家可能追问的技术路径：整体架构、三维云图、告警、演示模块如何接真数据。表述以当前发布版为准。</p>
+      </div>
+
+      <div class="arch-box">
+        <h3>整体架构（一句话）</h3>
+        <p>
+          本机运行 <code>FASTServer.exe</code>（.NET）提供 Web 服务（默认端口 1080）：
+          一边托管 <code>page/</code> 静态前端，一边对外提供 <code>/api/*</code>、<code>/Index/*</code>、<code>/alarm*</code> 等接口；
+          监测与告警数据来自云端 MySQL，由服务端查询后以 JSON 返回浏览器。
+        </p>
+        <div class="arch-flow">
+          <span>浏览器页面</span>
+          <span class="arrow">→</span>
+          <span>FASTServer 本地服务</span>
+          <span class="arrow">→</span>
+          <span>云端监测 / 告警库</span>
+        </div>
+      </div>
+
+      <div class="howto-grid">
+        <article class="howto-card">
+          <h3>1. 登录与门户</h3>
+          <p><b>实现要点：</b>登录页调用 <code>/api/login</code>；各业务页通过 <code>auth.js</code> 请求 <code>/api/me</code> 校验会话，未登录则跳转登录页。</p>
+          <p><b>门户：</b><code>ui/index.html</code> 以九宫格卡片进入各模块；全站顶栏由 <code>nav-nine.js / nav-nine.css</code> 注入九大功能及二级菜单。</p>
+          <p class="q"><b>可能追问：</b>权限如何做？——当前为运维账号登录态；更细角色权限可在服务端会话层扩展。</p>
+        </article>
+
+        <article class="howto-card">
+          <h3>2. 温度场三维监测</h3>
+          <p><b>实现要点：</b><code>indexTemp.html</code> 使用 Three.js 加载反射面三维模型；测点 / 结构基础数据来自 <code>/Index/data</code>；云图着色数据来自 <code>/Index/getHeatMapData</code> 等接口返回的温度数组，按色标映射到网格。</p>
+          <p><b>曲线面板：</b>ECharts 请求 <code>/Index/chart1~3</code> 绘制边缘索 / 均值 / 索网内温度过程；日历有数日期由 <code>/Index/monthDays</code> 提供；底部时间轴支持历史回放。</p>
+          <p class="q"><b>可能追问：</b>云图是实时算的吗？——当前为库内监测时序驱动前端着色展示；有限元在线求解属后续孪生深化方向。</p>
+        </article>
+
+        <article class="howto-card">
+          <h3>3. 索力三维监测</h3>
+          <p><b>实现要点：</b><code>indexForce.html</code> 同样以三维模型为底，索段按索力大小着色；左侧结构索力曲线与「极值排列」来自对应索力数据接口；右侧控制台切换模型显示与视角。</p>
+          <p class="q"><b>可能追问：</b>与温度场如何复用？——同属「三维底图 + 云图/着色 + 侧栏图表」模式，页面与接口按业务拆分，视觉与交互体系统一。</p>
+        </article>
+
+        <article class="howto-card">
+          <h3>4. 断丝预警与告警记录</h3>
+          <p><b>实现要点：</b><code>indexAlarm.html</code> 按告警状态对索段着色（绿 / 黄 / 红 / 蓝）；列表请求告警接口展示最近记录，点击可与模型对照。<code>alarmBoard.html</code> 做统计卡 + 明细表；下载页调用 <code>/alarm/downloadHistory</code> 等导出。</p>
+          <p class="q"><b>可能追问：</b>四级状态谁定义？——前端按约定枚举展示；等级规则与传感器判定在采集 / 告警侧产生，系统侧重汇聚展示与追溯。</p>
+        </article>
+
+        <article class="howto-card">
+          <h3>5. 诊断 / 寿命 / 健康等扩展模块</h3>
+          <p><b>实现要点：</b>页面采用「左侧结论清单 + 中间三维底图（iframe 嵌入 <code>index30.html</code>）+ 右侧说明」布局，公共样式与钉点逻辑在 <code>module-3d.css / module-3d.js</code>。当前列表数据来自 <code>ui/js/mock.js</code> 前端演示数据。</p>
+          <p class="q"><b>可能追问：</b>如何换成真结果？——保持现有 JSON 字段约定，新增 <code>/api/diagnosis</code>、<code>/api/life</code>、<code>/api/health</code> 等接口，前端改请求源即可，不必重做交互骨架。</p>
+        </article>
+
+        <article class="howto-card">
+          <h3>6. 备件 / 日志 / 发布</h3>
+          <p><b>实现要点：</b>备件页为库存台账、KPI、出入库登记的前端流程；日志页支持事件列表与一键生成日报文本；发布页为标题正文编辑与演示发布结果。当前以页面内逻辑 / 演示数据为主。</p>
+          <p class="q"><b>可能追问：</b>能否对接现有物资或 OA？——可以。将出入库、发布改为调用业务系统 API，本系统作为运维统一入口承接展示与操作。</p>
+        </article>
+      </div>
+
+      <div class="qa-block">
+        <h3>专家常见追问 · 简答备忘</h3>
+        <details open>
+          <summary>数据存在哪里？本机还是云端？</summary>
+          <p>监测时序、告警历史等业务数据在云端 MySQL；本机 <code>FASTServer</code> 负责鉴权、查询聚合与静态页托管。演示模块（诊断等）暂不写库。</p>
+        </details>
+        <details>
+          <summary>三维模型与传感器如何对应？</summary>
+          <p>通过测点 / 索段编码及坐标（或通道映射）与模型节点关联；基础清单由 <code>/Index/data</code> 等接口下发。编码不一致会导致局部曲线或着色为空，需统一测点目录。</p>
+        </details>
+        <details>
+          <summary>为什么有的曲线有数、有的为空？</summary>
+          <p>以边缘索温度曲线为例：接口可通，但测点在新旧传感器表映射不一致时，会返回空序列。属配置 / 映射问题，不是前端渲染失效。同页其它曲线有数可作对照。</p>
+        </details>
+        <details>
+          <summary>数字孪生是否已做在线有限元？</summary>
+          <p>当前重点是「监测数据三维可视化 + 运维功能承载」。编制说明中的油压、舱位等边界条件驱动有限元计算，属于后续对接计算服务的方向。</p>
+        </details>
+        <details>
+          <summary>前后端如何划分？改界面会不会动数据库？</summary>
+          <p>页面与样式在 <code>page/</code>；业务接口在 <code>FASTServer</code> 程序集。一般美化与布局只改前端静态文件；改测点映射或查询逻辑才涉及服务端 / 库表。</p>
+        </details>
+        <details>
+          <summary>如何保证演示边界说清楚？</summary>
+          <p>监测与告警：真实链路。诊断、寿命、健康、备件、日志、发布：界面与交互已就绪，数据为演示或待接业务。汇报时按成熟度表说明即可。</p>
+        </details>
+      </div>
     </section>
 
     <section id="maturity">
