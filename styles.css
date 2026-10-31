@@ -220,6 +220,33 @@ body.plain-page .top-nav { display: none; }
 .plain-flow b { color: #fff; }
 .plain-flow em { color: var(--demo); font-style: normal; }
 
+.plain-pipeline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 8px;
+  margin-top: 16px;
+}
+.pipe-step {
+  flex: 1 1 120px;
+  min-width: 110px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(8, 32, 58, 0.8);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.pipe-step b { color: var(--cyan); font-size: 14px; }
+.pipe-step span { color: var(--muted); font-size: 12px; line-height: 1.45; }
+.pipe-arrow {
+  align-self: center;
+  color: var(--cyan);
+  font-family: var(--display);
+  font-weight: 700;
+}
+
 @media (max-width: 960px) {
   .plain-steps { grid-template-columns: 1fr; }
   .plain-row { grid-template-columns: 1fr; }
