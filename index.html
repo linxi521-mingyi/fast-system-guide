@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAST数字孪生及智慧维护系统 · 项目导览</title>
+  <meta name="description" content="FAST系统文件功能对照、模块成熟度、后续数据与接口需求一览" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <header class="top">
+    <div class="brand">
+      <span class="brand-mark">FAST</span>
+      <span class="brand-text">项目导览 · 文件 / 功能 / 接口</span>
+    </div>
+    <nav class="top-nav">
+      <a href="#overview">总览</a>
+      <a href="#modules">九大功能</a>
+      <a href="#files">文件地图</a>
+      <a href="#maturity">成熟度</a>
+      <a href="#data">数据需求</a>
+      <a href="#api">接口清单</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="overview">
+      <p class="eyebrow">桂林理工大学 · 广西汉西鸣科技有限责任公司</p>
+      <h1>FAST<span>数字孪生及智慧维护系统</span></h1>
+      <p class="lead">
+        一眼看清：每个功能在哪、对应哪些文件、哪些已接真实数据、后续还缺什么数据与接口。
+      </p>
+      <div class="hero-pills">
+        <span class="pill real">真实数据链路</span>
+        <span class="pill demo">演示界面就绪</span>
+        <span class="pill todo">待接入模型</span>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><b>9</b><span>功能模块</span></div>
+        <div class="stat"><b>3</b><span>监测大屏</span></div>
+        <div class="stat"><b>page/</b><span>前端主目录</span></div>
+        <div class="stat"><b>FASTServer</b><span>本地服务入口</span></div>
+      </div>
+    </section>
+
+    <section id="modules">
+      <div class="sec-head">
+        <h2>九大功能 · 文件落点</h2>
+        <p>点击卡片可跳到下方详细文件表。绿标=已接真实数据，黄标=演示数据，蓝标=入口聚合。</p>
+      </div>
+      <div class="module-grid" id="moduleGrid"></div>
+    </section>
+
+    <section id="maturity">
+      <div class="sec-head">
+        <h2>成熟度一览</h2>
+        <p>汇报时请明确边界：监测与告警已打通真实链路；诊断 / 寿命 / 健康等界面已就绪，待模型灌数。</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>模块</th><th>状态</th><th>数据性质</th><th>主文件</th></tr>
+          </thead>
+          <tbody id="maturityBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="files">
+      <div class="sec-head">
+        <h2>项目文件地图</h2>
+        <p>按目录归类：运行入口、前端页面、公共资源、三维与大屏资源、后端运行时。</p>
+      </div>
+
+      <div class="folder-block">
+        <h3><code>release-windows/</code> 发布根目录</h3>
+        <div class="file-table-wrap">
+          <table class="file-table">
+            <thead><tr><th>文件 / 目录</th><th>作用</th></tr></thead>
+            <tbody>
+              <tr><td><code>FASTServer.exe</code></td><td>本地 Web 服务入口（默认端口 1080），托管 page 静态页并转发业务 API</td></tr>
+              <tr><td><code>FASTServer.dll</code></td><td>业务逻辑程序集（登录、Index/*、告警等接口）</td></tr>
+              <tr><td><code>启动本地系统.bat</code></td><td>一键启动服务并打开浏览器登录页</td></tr>
+              <tr><td><code>page/</code></td><td><strong>前端全部页面与资源</strong>（讲解重点）</td></tr>
+              <tr><td><code>keepalive-src/</code></td><td>保活相关源码（.NET 小工具）</td></tr>
+              <tr><td><code>zh-CN/</code> 等运行库 DLL</td><td>.NET 8 运行时依赖，一般无需改</td></tr>
+              <tr><td><code>_doc_extract/</code> <code>_spec_extract/</code></td><td>编制说明文档解压缓存（开发辅助，非运行必需）</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="folder-block">
+        <h3><code>page/</code> 前端页面（按功能）</h3>
+        <div class="file-table-wrap">
+          <table class="file-table">
+            <thead><tr><th>功能</th><th>关键文件</th><th>说明</th></tr></thead>
+            <tbody>
+              <tr><td>登录</td><td><code>login.html</code> · <code>ui/login.html</code> · <code>auth.js</code></td><td>账号登录、会话校验、跳转门户</td></tr>
+              <tr><td>平台门户</td><td><code>ui/index.html</code> · <code>ui/css/common.css</code></td><td>九宫格入口 + 数字孪生入口卡片</td></tr>
+              <tr><td>九大导航</td><td><code>nav-nine.js</code> · <code>nav-nine.css</code></td><td>全站顶栏菜单与二级下拉</td></tr>
+              <tr><td>温度场监测</td><td><code>indexTemp.html</code></td><td>三维温度云图、曲线、日历、回放、控制台</td></tr>
+              <tr><td>索力监测</td><td><code>indexForce.html</code></td><td>索力云图、结构曲线、极值排列</td></tr>
+              <tr><td>断丝预警</td><td><code>indexAlarm.html</code></td><td>四色状态着色 + 最近告警列表对照模型</td></tr>
+              <tr><td>告警记录</td><td><code>alarmBoard.html</code> · <code>alarmdownload.html</code></td><td>告警统计 / 明细 / 下载</td></tr>
+              <tr><td>温度对比下载</td><td><code>tempcmp.html</code> <code>tempcmpnew.html</code> <code>tempdownload.html</code> <code>tempdownloadnew.html</code></td><td>索网 / 圈梁温度对比与导出</td></tr>
+              <tr><td>索力对比下载</td><td><code>forcecmp.html</code> · <code>forcedownload.html</code></td><td>索力历史曲线与数据下载</td></tr>
+              <tr><td>故障诊断</td><td><code>diagnosis.html</code></td><td>诊断清单 + 三维定位（当前演示数据）</td></tr>
+              <tr><td>寿命预测</td><td><code>life.html</code></td><td>资产寿命清单 + 云图说明（演示数据）</td></tr>
+              <tr><td>健康评估</td><td><code>health.html</code></td><td>综合指数与子系统评分（演示数据）</td></tr>
+              <tr><td>备品备件</td><td><code>spare.html</code></td><td>库存台账 / KPI / 出入库（演示台账）</td></tr>
+              <tr><td>系统显示平台</td><td><code>display.html</code></td><td>三大监测云图统一入口</td></tr>
+              <tr><td>运行日志</td><td><code>logs.html</code></td><td>事件流 + 一键日报（演示）</td></tr>
+              <tr><td>信息发布</td><td><code>publish.html</code></td><td>通报编辑发布（演示）</td></tr>
+              <tr><td>精简三维</td><td><code>index30.html</code></td><td>嵌入式三维底图（多模块 iframe 复用）</td></tr>
+              <tr><td>扩展页公共壳</td><td><code>module-3d.css</code> · <code>module-3d.js</code></td><td>诊断等页的三维底图浮层与色标</td></tr>
+              <tr><td>演示数据</td><td><code>ui/js/mock.js</code></td><td>诊断 / 寿命 / 健康 / 备件 / 日志等假数据</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="folder-block">
+        <h3><code>page/</code> 资源与子目录</h3>
+        <div class="file-table-wrap">
+          <table class="file-table">
+            <thead><tr><th>目录</th><th>作用</th></tr></thead>
+            <tbody>
+              <tr><td><code>page/3D/</code></td><td>三维模型与相关资源</td></tr>
+              <tr><td><code>page/bigdata/</code></td><td>大屏风格 CSS / 背景图 / 组件样式（监测页共用）</td></tr>
+              <tr><td><code>page/assets/</code></td><td>通用前端库与图片（echarts 副本、插件等）</td></tr>
+              <tr><td><code>page/ui/</code></td><td>门户与登录美化版、公共 CSS、mock 数据</td></tr>
+              <tr><td><code>page/images/</code> <code>fonts/</code> <code>font-awesome*</code></td><td>图标字体与图片素材</td></tr>
+              <tr><td><code>page/fastLogo.png</code> <code>hcmlogo-tm.png</code></td><td>系统 Logo</td></tr>
+              <tr><td><code>page/model.obj</code></td><td>三维网格模型文件</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="data">
+      <div class="sec-head">
+        <h2>后续需要的数据</h2>
+        <p>分三类：持续完善的监测数据、待接入的研判运维数据、孪生计算边界条件。</p>
+      </div>
+      <div class="triple">
+        <article class="card">
+          <h3>A · 监测类（已有，需理顺）</h3>
+          <ul>
+            <li>节点 / 索网温度时序（统一测点目录）</li>
+            <li>索力时序与极值、单位与有效区间</li>
+            <li>断丝告警流水与索段 ID 稳定对应</li>
+            <li>三维几何与测点坐标版本化</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>B · 研判运维类（待接入）</h3>
+          <ul>
+            <li>诊断结论：对象 / 类型 / 等级 / 置信度 / 建议 / 定位</li>
+            <li>寿命：剩余年限 / 风险 / 趋势</li>
+            <li>健康：综合指数 + 子系统评分</li>
+            <li>备件主数据与出入库流水</li>
+            <li>运维事件日志、发布通报与回执</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>C · 孪生边界（中长期）</h3>
+          <ul>
+            <li>促动器油压、活塞伸出量</li>
+            <li>馈源舱位置坐标</li>
+            <li>相对基准态位移（可放大显示）</li>
+            <li>有限元求解结果云图数据</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="api">
+      <div class="sec-head">
+        <h2>接口清单</h2>
+        <p>现网已用接口 + 建议新增业务接口。统一建议 REST + JSON，对象 ID / 等级枚举全站一致。</p>
+      </div>
+
+      <h3 class="sub">已存在（监测主链路）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>接口</th><th>作用</th><th>状态</th></tr></thead>
+          <tbody>
+            <tr><td><code>GET /api/login</code> · <code>/api/me</code></td><td>登录与会话</td><td><span class="tag real">已用</span></td></tr>
+            <tr><td><code>GET /Index/data</code></td><td>三维结构 / 传感器基础数据</td><td><span class="tag real">已用</span></td></tr>
+            <tr><td><code>GET /Index/chart1</code></td><td>边缘索温度曲线</td><td><span class="tag warn">需修测点映射</span></td></tr>
+            <tr><td><code>GET /Index/chart2</code> · <code>chart3</code></td><td>温度均值 / 索网内曲线</td><td><span class="tag real">已用</span></td></tr>
+            <tr><td><code>GET /Index/getHeatMapData</code></td><td>温度云图</td><td><span class="tag real">已用</span></td></tr>
+            <tr><td><code>GET /Index/monthDays</code></td><td>日历有数日期</td><td><span class="tag real">已用</span></td></tr>
+            <tr><td><code>GET /alarm</code> · <code>/alarm/data</code></td><td>告警状态与历史</td><td><span class="tag real">已用</span></td></tr>
+            <tr><td><code>GET /alarm/downloadHistory</code> 等</td><td>告警导出</td><td><span class="tag real">已用</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub">建议新增（替换演示数据）</h3>
+      <div class="api-grid" id="apiGrid"></div>
+
+      <div class="callout">
+        <strong>接口约定建议：</strong>
+        索段 / 促动器 / 钢丝绳编码与三维、告警、诊断共用一套 ID；
+        告警等级 <code>0正常 / 1疑似 / 2高度疑似 / 3干扰</code>；
+        时间格式统一；无数据返回空数组而非 500；写接口需登录态。
+      </div>
+    </section>
+
+    <section id="priority">
+      <div class="sec-head">
+        <h2>后续优先级</h2>
+      </div>
+      <ol class="prio">
+        <li><b>P0</b> 理顺边缘索等测点映射，三大监测稳定可演</li>
+        <li><b>P0</b> 固化告警类型与索段 ID 规范</li>
+        <li><b>P1</b> 接入诊断 / 寿命 / 健康模型结果接口</li>
+        <li><b>P2</b> 备件、发布、日志对接真实业务库</li>
+        <li><b>P3</b> 有限元 / 孪生求解服务在线化</li>
+      </ol>
+    </section>
+
+    <section class="closing">
+      <h2>讲解收束三句话</h2>
+      <ol>
+        <li><b>现在已经做成：</b>统一门户 + 温度 / 索力 / 断丝三维监测与告警追溯。</li>
+        <li><b>界面已经铺好：</b>诊断、寿命、健康、备件、日志、发布按运维链条可演示。</li>
+        <li><b>下一步最需要：</b>模型标准数据与接口，以及测点编码、告警等级等共同语言。</li>
+      </ol>
+      <p class="foot-note">本地演示：运行 <code>FASTServer.exe</code> → 打开 <code>http://localhost:1080/login.html</code></p>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <span>FAST数字孪生及智慧维护系统 · 项目导览站</span>
+    <span>仅含文档说明，不含业务密钥与服务端程序</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
