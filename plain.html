@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FAST系统 · 大白话版</title>
-  <meta name="description" content="用大白话讲清楚：这套系统能干什么、哪些是真数据、后面还缺什么" />
+  <title>FAST系统 · 简明汇报版</title>
+  <meta name="description" content="面向汇报的简明说明：系统定位、现有能力、后续需求" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
@@ -17,121 +17,122 @@
   <header class="top">
     <div class="brand">
       <span class="brand-mark">FAST</span>
-      <span class="brand-text">大白话版 · 先听懂再说细节</span>
+      <span class="brand-text">简明汇报版 · 便于口头介绍</span>
     </div>
     <div class="version-switch" role="navigation" aria-label="版本切换">
       <a class="vs-btn" href="index.html">详细版</a>
-      <a class="vs-btn is-active" href="plain.html">大白话版</a>
+      <a class="vs-btn is-active" href="plain.html">简明汇报版</a>
     </div>
   </header>
 
   <main>
     <section class="hero">
-      <p class="eyebrow">给导师 / 专家 / 第一次接触系统的人</p>
-      <h1>这套系统<span>到底在干什么？</span></h1>
+      <p class="eyebrow">桂林理工大学 · 广西汉西鸣科技有限责任公司</p>
+      <h1>FAST<span>数字孪生及智慧维护系统</span></h1>
       <p class="lead">
-        简单说：把 FAST「天眼」反射面的监测、告警、运维，装进一个网站里。
-        平时看温度和索力，出事看告警，后面再接诊断、寿命、备件这些「怎么处理」的功能。
+        本系统面向 FAST 主动反射面与馈源支撑的运行监测与运维保障，
+        将三维展示与九大功能统一到同一门户：日常掌握温度、索力与断丝状态，
+        异常时可查阅告警，并为诊断评估、备件保障与信息发布预留完整界面。
       </p>
       <div class="hero-pills">
-        <span class="pill real">绿：已经能用真数据</span>
-        <span class="pill demo">黄：界面有了，数据还是演示</span>
-        <span class="pill todo">蓝：后面要接模型/业务</span>
+        <span class="pill real">已接入真实监测 / 告警数据</span>
+        <span class="pill demo">评估运维类界面已就绪</span>
+        <span class="pill todo">模型与业务接口待对接</span>
       </div>
-      <p class="to-detail"><a href="index.html">想看文件路径和接口清单？→ 去详细版</a></p>
+      <p class="to-detail"><a href="index.html">需要文件路径与接口细则时，可切换至详细版</a></p>
     </section>
 
     <section>
       <div class="sec-head">
-        <h2>先记三句话就够</h2>
+        <h2>汇报时可把握的三点</h2>
       </div>
       <div class="plain-steps">
         <article class="plain-card">
           <div class="num">1</div>
-          <h3>现在已经做成</h3>
-          <p>统一登录门户 + 温度 / 索力 / 断丝三大监测大屏 + 告警记录。数据和三维模型绑在一起，不是只看表格。</p>
+          <h3>已具备的核心能力</h3>
+          <p>统一登录与门户、温度场 / 索力 / 断丝三维监测大屏，以及告警记录与导出。监测结果可叠加于三维模型，便于直观研判。</p>
         </article>
         <article class="plain-card">
           <div class="num">2</div>
-          <h3>界面已经铺好</h3>
-          <p>诊断、寿命、健康、备件、日志、发布这些页都能点开演示「运维闭环长什么样」，但里面暂时多是演示数据。</p>
+          <h3>已铺设的运维链条</h3>
+          <p>故障诊断、寿命预测、健康评估、备品备件、运行日志、信息发布等模块界面与交互已按运维流程完成布局，便于后续接入真实业务结果。</p>
         </article>
         <article class="plain-card">
           <div class="num">3</div>
-          <h3>后面最缺什么</h3>
-          <p>诊断 / 寿命 / 健康等模型吐出来的标准结果，以及测点编号、告警等级这些「大家说同一种话」的约定。</p>
+          <h3>下一阶段的关键需求</h3>
+          <p>需要诊断、寿命、健康等模型按统一标准输出结果，并明确测点编码、告警等级等基础规范，以便多方协同对接。</p>
         </article>
       </div>
     </section>
 
     <section>
       <div class="sec-head">
-        <h2>九大功能 · 人话版</h2>
-        <p>每个模块一句话：能干啥、现在靠不靠谱。</p>
+        <h2>九大功能简述</h2>
+        <p>每个模块说明其用途，并标注当前数据成熟度。</p>
       </div>
       <div class="plain-list">
         <div class="plain-row">
-          <span class="badge real">真数据</span>
+          <span class="badge real">真实数据</span>
           <div>
             <h3>运行状态监测</h3>
-            <p>日常值班看这里：反射面哪里偏热、哪根索力偏大，还能对比、下载数据。</p>
-            <p class="hint">主要文件：温度场、索力监测、对比/下载那些页面</p>
+            <p>用于日常掌握反射面温度分布与索力状态，支持曲线对照、历史回看及数据下载，是系统当前最完整的监测能力。</p>
+            <p class="hint">对应页面：温度场监测、索力监测及对比 / 下载相关页</p>
           </div>
         </div>
         <div class="plain-row">
-          <span class="badge demo">演示</span>
+          <span class="badge demo">演示数据</span>
           <div>
             <h3>故障诊断结果</h3>
-            <p>出了问题，列表告诉你「哪个设备、什么毛病、严不严重、建议怎么办」，点一下模型上还能标位置。现在列表是演示用的。</p>
+            <p>以清单形式呈现诊断对象、类型、等级、置信度与处理建议，并可在三维模型上定位。界面形态已定，正式结论待诊断模型接入。</p>
           </div>
         </div>
         <div class="plain-row">
-          <span class="badge demo">演示</span>
+          <span class="badge demo">演示数据</span>
           <div>
             <h3>寿命预测结果</h3>
-            <p>看主索、钢丝绳、促动器大概还能用多久、风险在升还是稳。等寿命模型接上才有真数。</p>
+            <p>展示主索、钢丝绳、促动器等关键资产的剩余寿命、风险等级与变化趋势，为检修安排提供依据。正式数据待寿命模型接入。</p>
           </div>
         </div>
         <div class="plain-row">
-          <span class="badge demo">演示</span>
+          <span class="badge demo">演示数据</span>
           <div>
             <h3>健康状态评估</h3>
-            <p>给系统打个总分，再拆成反射面、馈源支撑等几块分数，方便汇报。现在是示意分数。</p>
+            <p>给出综合健康指数，并按子系统分别评分，便于阶段性汇报与问题定位。当前评分为界面示意。</p>
           </div>
         </div>
         <div class="plain-row">
-          <span class="badge demo">演示</span>
+          <span class="badge demo">演示数据</span>
           <div>
             <h3>备品备件管理</h3>
-            <p>备件还剩多少、低于安全库存会标黄，出入库也能记。现在是演示台账。</p>
+            <p>支持备件台账、安全库存提示及出入库登记，形成运维物资管理入口。当前为演示台账，待对接业务库存系统。</p>
           </div>
         </div>
         <div class="plain-row">
-          <span class="badge hub">入口</span>
+          <span class="badge hub">统一入口</span>
           <div>
             <h3>系统显示平台</h3>
-            <p>一个门口，通向温度 / 索力 / 断丝三块大屏，不用记网址。</p>
+            <p>作为温度场、索力、断丝三块监测大屏的统一入口，便于快速切换不同云图视图。</p>
           </div>
         </div>
         <div class="plain-row">
-          <span class="badge real">真数据</span>
+          <span class="badge real">真实数据</span>
           <div>
             <h3>故障警报展示</h3>
-            <p>断丝疑似情况用绿黄红蓝上色；告警列表能对照模型，还能下载留底。这块接的是真实告警。</p>
+            <p>按状态对索段着色（正常 / 疑似 / 高度疑似 / 干扰），告警明细可与模型对照，并支持下载留存，已接入真实告警流水。</p>
           </div>
         </div>
         <div class="plain-row">
-          <span class="badge demo">演示</span>
+          <span class="badge demo">演示数据</span>
           <div>
             <h3>运行日志生成</h3>
-            <p>今天系统/人干了啥记一笔，点一下生成值班日报。事件目前是演示的。</p>
+            <p>汇集系统与人员相关事件，支持生成运行日报摘要，便于交接班与归档。事件源待与真实操作及告警汇聚对接。</p>
           </div>
         </div>
         <div class="plain-row">
-          <span class="badge demo">演示</span>
+          <span class="badge demo">演示数据</span>
           <div>
             <h3>信息发布</h3>
-            <p>在系统里写维护计划、通知通报再发出去。发布通道待接真实业务。</p>
+            <p>在系统内编辑维护计划与通知通报并完成发布演示，实际推送通道待接入正式业务系统。</p>
           </div>
         </div>
       </div>
@@ -139,79 +140,79 @@
 
     <section>
       <div class="sec-head">
-        <h2>怎么演示比较顺</h2>
-        <p>大约 10 分钟讲完的路线。</p>
+        <h2>建议介绍路径</h2>
+        <p>约八至十二分钟的演示顺序，便于条理清晰。</p>
       </div>
       <ol class="plain-flow">
-        <li><b>登录进门户</b>——九张卡片一眼知道系统能干啥</li>
-        <li><b>温度场大屏</b>——云图上看哪里热，配曲线和按日回看</li>
-        <li><b>索力大屏</b>——哪根索力大，极值名单对着模型看</li>
-        <li><b>断丝 + 告警</b>——色标含义 + 列表点选对照 + 能下载</li>
-        <li><b>诊断 / 寿命 / 健康</b>——各看一眼界面形态，<em>明确说是演示数据</em></li>
-        <li><b>备件 / 日志 / 发布</b>——说明「运维最后一公里」产品形态和待接数据</li>
+        <li><b>登录与门户</b>——展示统一入口与九大功能总览</li>
+        <li><b>温度场监测</b>——三维云图、曲线面板与按日查询 / 回放</li>
+        <li><b>索力监测</b>——索段着色与极值排列对照</li>
+        <li><b>断丝预警与告警记录</b>——状态色标、列表联动与导出能力</li>
+        <li><b>诊断 / 寿命 / 健康</b>——说明界面与交互设计，并注明当前为演示数据</li>
+        <li><b>备件 / 日志 / 发布</b>——说明运维保障环节的产品形态与后续对接方向</li>
       </ol>
     </section>
 
     <section>
       <div class="sec-head">
-        <h2>后面还需要啥（用人话）</h2>
+        <h2>后续数据与协作重点</h2>
       </div>
       <div class="triple">
         <article class="card">
-          <h3>监测这块 · 继续理顺</h3>
+          <h3>监测数据持续完善</h3>
           <ul>
-            <li>温度、索力测点编号别乱套</li>
-            <li>告警类型、等级说清楚</li>
-            <li>模型和测点坐标升级后别对不上</li>
+            <li>统一温度、索力测点目录与编码</li>
+            <li>规范告警类型与等级定义</li>
+            <li>三维模型与测点坐标版本化管理</li>
           </ul>
         </article>
         <article class="card">
-          <h3>研判这块 · 要接真结果</h3>
+          <h3>研判与运维结果接入</h3>
           <ul>
-            <li>诊断结论（啥问题、多严重、怎么办）</li>
-            <li>寿命和健康评分</li>
-            <li>备件库存流水、值班日志、通报发布</li>
+            <li>诊断结论及其三维定位信息</li>
+            <li>寿命预测与健康评估结果</li>
+            <li>备件流水、运行事件与发布回执</li>
           </ul>
         </article>
         <article class="card">
-          <h3>再往后 · 孪生算得更深</h3>
+          <h3>数字孪生深化（中长期）</h3>
           <ul>
-            <li>促动器油压、活塞伸出量</li>
-            <li>馈源舱位置</li>
-            <li>算出力 / 应力 / 位移再上色显示</li>
+            <li>促动器油压与活塞伸出量等边界条件</li>
+            <li>馈源舱位置坐标</li>
+            <li>有限元计算得到的力、应力与位移云图</li>
           </ul>
         </article>
       </div>
-      <p class="to-detail mid"><a href="index.html#api">接口叫什么、字段怎么定 → 看详细版「接口清单」</a></p>
+      <p class="to-detail mid"><a href="index.html#api">接口名称、字段约定与优先级详见详细版</a></p>
     </section>
 
     <section>
       <div class="sec-head">
-        <h2>先干什么（优先级）</h2>
+        <h2>工作安排建议</h2>
       </div>
       <ol class="prio">
-        <li><b>马上</b> 监测大屏稳定、告警编号统一——演示别卡壳</li>
-        <li><b>接着</b> 接诊断 / 寿命 / 健康真实结果——从「会看」到「给结论」</li>
-        <li><b>然后</b> 备件、日志、发布对接真实业务</li>
-        <li><b>长期</b> 有限元 / 孪生计算在线化</li>
+        <li><b>近期</b> 保障三大监测与告警稳定可用，统一测点与告警编码规范</li>
+        <li><b>下一阶段</b> 对接诊断、寿命、健康等模型结果，形成可引用的研判输出</li>
+        <li><b>随后</b> 将备件、日志、发布接入真实业务系统</li>
+        <li><b>中长期</b> 推进有限元 / 孪生求解服务在线化</li>
       </ol>
     </section>
 
     <section class="closing">
-      <h2>收束可以这么说</h2>
+      <h2>汇报收束表述</h2>
       <ol>
-        <li>监测和告警已经能对着三维模型用真数据。</li>
-        <li>诊断到发布这条运维链，界面已经按真实使用方式搭好了。</li>
-        <li>下一步请专家帮忙定：模型输出格式、测点编码、告警等级这些共同约定。</li>
+        <li>监测与告警已实现与三维模型联动，并接入真实数据链路。</li>
+        <li>从诊断评估到备件发布的运维界面已按实际使用流程完成建设。</li>
+        <li>恳请各方在模型输出格式、测点编码与告警等级等标准上予以指导与协同。</li>
       </ol>
-      <p class="foot-note">本地打开系统：运行 FASTServer.exe → 浏览器进 http://localhost:1080/login.html</p>
-      <p class="to-detail"><a class="big-link" href="index.html">切换到详细版（文件地图 / 接口表）</a></p>
+      <p class="foot-note">本地演示：运行 FASTServer.exe 后访问 http://localhost:1080/login.html</p>
+      <p class="to-detail"><a class="big-link" href="index.html">切换至详细版（文件地图与接口清单）</a></p>
     </section>
   </main>
 
   <footer class="site-foot">
-    <span>FAST · 大白话版</span>
-    <a href="index.html">去详细版</a>
+    <span>FAST · 简明汇报版</span>
+    <a href="index.html">前往详细版</a>
   </footer>
 </body>
 </html>

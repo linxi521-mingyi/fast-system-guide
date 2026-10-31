@@ -3,7 +3,7 @@
 静态说明网站，两个可互相跳转的版本：
 
 - `index.html`：**详细版**（文件地图、成熟度、接口清单）
-- `plain.html`：**大白话版**（适合口头讲解）
+- `plain.html`：**简明汇报版**（面向领导介绍，表述规范、条理清晰）
 
 ## 本地预览
 
@@ -12,4 +12,4 @@
 ## 在线地址
 
 - 详细版：https://linxi521-mingyi.github.io/fast-system-guide/
-- 大白话版：https://linxi521-mingyi.github.io/fast-system-guide/plain.html
+- 简明汇报版：https://linxi521-mingyi.github.io/fast-system-guide/plain.html
