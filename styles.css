@@ -122,7 +122,18 @@ body {
 }
 .site-foot a:hover { color: #fff; }
 
-/* 大白话版专属 */
+/* 简介移动版专属 */
+body.plain-page main {
+  width: min(720px, calc(100% - 28px));
+  padding-bottom: 48px;
+}
+body.plain-page .hero h1 {
+  font-size: clamp(28px, 8vw, 42px);
+}
+body.plain-page .lead {
+  font-size: 15px;
+}
+body.plain-page .top-nav { display: none; }
 .plain-steps {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
